@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10131b">
+  <meta name="description" content="Crypt Diary — a browser-only tool for your custom symbol and transposition cipher.">
+  <title>Crypt Diary</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Crypt Diary home">
+        <span class="brand-mark" aria-hidden="true">ᛉ</span>
+        <span class="brand-name">CRYPT <span>DIARY</span></span>
+      </a>
+      <span class="local-only"><span class="status-dot"></span> BROWSER ONLY</span>
+    </header>
+
+    <section class="intro" id="top">
+      <p class="eyebrow">YOUR PRIVATE LETTER-SHUFFLING CIPHER</p>
+      <h1>Some things are<br><span>not for everyone.</span></h1>
+      <p class="intro-copy">Turn a sentence into your custom symbols, or bring a coded message back to readable text.</p>
+    </section>
+
+    <section class="workbench" aria-label="Crypt Diary encoder and decoder">
+      <div class="mode-switch" role="tablist" aria-label="Choose a mode">
+        <button class="mode-button active" id="encrypt-tab" type="button" role="tab" aria-selected="true" aria-controls="workspace" data-mode="encrypt">
+          <span class="mode-icon" aria-hidden="true">↗</span> Encrypt
+        </button>
+        <button class="mode-button" id="decrypt-tab" type="button" role="tab" aria-selected="false" aria-controls="workspace" data-mode="decrypt">
+          <span class="mode-icon" aria-hidden="true">↙</span> Decrypt
+        </button>
+      </div>
+
+      <div class="workspace" id="workspace" role="tabpanel" aria-labelledby="encrypt-tab">
+        <div class="panel input-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker" id="input-kicker">STEP 01 / PLAINTEXT</p>
+              <h2 id="input-title">Write your message</h2>
+            </div>
+            <span class="count-pill" id="input-count">0 chars</span>
+          </div>
+          <label class="sr-only" for="source-text" id="source-label">Message to encrypt</label>
+          <textarea id="source-text" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="Type or paste your message here…"></textarea>
+          <div class="input-footnote" id="input-footnote">Punctuation is removed. Spaces are kept. Letters become uppercase.</div>
+        </div>
+
+        <div class="action-row">
+          <button class="primary-button" id="run-button" type="button">
+            <span id="run-label">Encrypt message</span><span class="button-arrow" aria-hidden="true">→</span>
+          </button>
+          <button class="text-button" id="swap-button" type="button" title="Move the result into the input and switch modes" disabled>Use result as input ↻</button>
+        </div>
+
+        <div class="panel output-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker" id="output-kicker">STEP 02 / ENCRYPTED TEXT</p>
+              <h2 id="output-title">Your cipher</h2>
+            </div>
+            <button class="copy-button" id="copy-button" type="button" disabled><span aria-hidden="true">▢</span> Copy</button>
+          </div>
+          <label class="sr-only" for="result-text">Output</label>
+          <textarea id="result-text" spellcheck="false" readonly placeholder="Your result will appear here…"></textarea>
+          <div class="output-bottom">
+            <span id="result-count">Waiting for input</span>
+            <span class="result-state" id="result-state"><span class="status-dot"></span> Ready</span>
+          </div>
+        </div>
+
+        <div class="message-bar" id="message-bar" role="status" aria-live="polite" hidden></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>CRYPT DIARY <span class="footer-divider">/</span> PERSONAL CIPHER</span>
+      <span>No accounts. No server. No uploads.</span>
+    </footer>
+  </main>
+</body>
+</html>
