@@ -23,12 +23,6 @@ Open `index.html` in a modern browser. All cipher work happens in `script.js` in
 5. Replace letters, digits, spaces, and padding using the custom mapping, then concatenate the result.
 6. Decryption reverses those steps and removes trailing padding.
 
-## Important note about the order
-
-`1562475`, as originally written in the conversation, is not a valid reversible ordering: it repeats `5` and omits `3`. The website defaults to `1475236`, which reproduces the confirmed text example. The column order can be changed in the settings, but encryption and decryption must use the same valid permutation.
-
-A separate short example, `JUΛJFKZ → 230925`, appears inconsistent with the confirmed `1475236` order. If that sample is authoritative, test order `1275436` in the settings and ensure the same order is used for both directions.
-
 ## Security
 
 This is a personal substitution/transposition cipher, not modern cryptographic protection. Do not use it for passwords, account credentials, or information that requires strong confidentiality.
